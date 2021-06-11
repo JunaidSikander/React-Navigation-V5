@@ -11,9 +11,6 @@ import {DrawerContent} from "./src/screens/DrawerContent"
 const Drawer = createDrawerNavigator()
 
 export default function App() {
-    /*const [isLoading, setIsLoading] = useState(true);
-    const [userToken, setUserToken] = useState(null);*/
-
     const initialLoginState = {
         isLoading: true,
         userName: null,
@@ -62,15 +59,14 @@ export default function App() {
     const [loginState, dispatch] = useReducer(loginReducer, initialLoginState);
 
     const authContext = useMemo(() => ({
-        signIn: async (userName, password) => {
-            let userToken = null;
-            if (userName === 'user' && password === 'pass')
-                try {
-                    userToken = 'asdjhkj1h231k';
-                    await AsyncStorage.setItem('userToken', userToken)
-                } catch (e) {
-                    console.log('Error: ', e);
-                }
+        signIn: async (foundUser) => {
+            const userToken = String(foundUser[0].userToken);
+            const userName = foundUser[0].username;
+            try {
+                await AsyncStorage.setItem('userToken', userToken)
+            } catch (e) {
+                console.log('Error: ', e);
+            }
             dispatch({type: 'LOGIN', id: userName, token: userToken});
         },
         signOut: async () => {
