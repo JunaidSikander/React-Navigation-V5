@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 
 import {StyleSheet, View} from 'react-native';
 import {Avatar, Caption, Drawer, Paragraph, Switch, Text, Title, TouchableRipple} from 'react-native-paper'
-import {createDrawerNavigator, DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
+import {DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import Icon from "react-native-vector-icons/Ionicons";
 
 
 export function DrawerContent(props) {
@@ -47,7 +46,7 @@ export function DrawerContent(props) {
                                     size={size}
                                 />)}
                             label='Home'
-                            onPress={() => props.navigation.navigate('Home') }/>
+                            onPress={() => props.navigation.navigate('Home')}/>
                         <DrawerItem
                             icon={({color, size}) => (
                                 <MaterialIcons
@@ -89,8 +88,14 @@ export function DrawerContent(props) {
                         />
                     </Drawer.Section>
                     <Drawer.Section title='Preferences'>
-                        <TouchableRipple onPress={()=>toggleTheme()}>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
+                        <TouchableRipple onPress={() => toggleTheme()}>
+                            <View style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                marginLeft: 20,
+                                marginRight: 20
+                            }}>
                                 <Text> Dark Theme </Text>
                                 <View pointerEvents='none'>
                                     <Switch value={isDarkTheme}/>
