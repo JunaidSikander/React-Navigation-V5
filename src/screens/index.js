@@ -8,6 +8,7 @@ import SupportScreen from "./SupportScreen";
 import SplashScreen from "./SplashScreen";
 import SignInScreen from "./SignInScreen";
 import SignUpScreen from "./SignUpScreen";
+import ExploreScreen from "./ExploreScreen";
 
 export {
     HomeScreen,
@@ -19,5 +20,6 @@ export {
     SupportScreen,
     SplashScreen,
     SignInScreen,
-    SignUpScreen
+    SignUpScreen,
+    ExploreScreen
 }
